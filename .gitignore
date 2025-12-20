@@ -1,0 +1,82 @@
+############################
+# ENV & SECRETS
+############################
+.env
+.env.*
+*.env
+
+############################
+# .NET / ASP.NET Core
+############################
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+*.db
+*.db-shm
+*.db-wal
+appsettings.Development.json
+appsettings.Local.json
+
+############################
+# Rider / JetBrains
+############################
+.idea/
+*.sln.iml
+
+############################
+# React / Node / Frontend
+############################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+build/
+.vite/
+
+############################
+# Tailwind / PostCSS
+############################
+.tailwindcss/
+.postcssrc
+postcss.config.js.cache
+
+############################
+# Docker
+############################
+docker-compose.override.yml
+*.pid
+*.tar
+
+############################
+# OS / Editor
+############################
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+############################
+# Logs
+############################
+logs/
+*.log
+
+############################
+# Coverage / Tests
+############################
+coverage/
+TestResults/
+
+############################
+# Python / AI (if used later)
+############################
+__pycache__/
+*.pyc
+.venv/
+venv/
