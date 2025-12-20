@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS CANDIDATES (
     resume_Url TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
-CREATE TABLE IF EXISTS embeddings (
+CREATE TABLE IF NOT EXISTS embeddings(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     owner_type TEXT NOT NULL CHECK (owner_type IN ('job', 'candidate')),
     owner_id UUID NOT NULL,
@@ -37,6 +37,7 @@ CREATE TABLE IF EXISTS embeddings (
     vector VECTOR(1536) NOT NULL
 );
 CREATE UNIQUE INDEX IF NOT EXISTS idx_embeddings_owner ON embeddings (owner_type, owner_id);
+CREATE INDEX ON embeddings USING ivfflat (vector vector_cosine_ops); -- For faster similarity search
 CREATE TABLE IF NOT EXISTS RANKINGS (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     job_id UUID REFERENCES Jobs(id) ON DELETE CASCADE,
